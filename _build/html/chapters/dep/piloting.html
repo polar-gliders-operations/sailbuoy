@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Piloting &#8212; Sailbuoy</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/polar_gliders-simple.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Autopilot" href="ap_commands.html" />
+    <link rel="prev" title="Before deployment" href="../pre_dep/pre_deployment.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/polar_gliders-simple.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sailbuoy</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sensors/sensors.html">
+   Sensors
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sensors/DCPS.html">
+     Aanderaa DCPS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pre_dep/pre_deployment.html">
+   Before deployment
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Piloting
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ap_commands.html">
+     Autopilot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dl_commands.html">
+     Datalogger
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../post_dep/post_deployment.html">
+   After deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../manuals/manuals.html">
+   Manuals
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/dep/piloting.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/dep/piloting.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iridium-data-service">
+   Iridium Data Service
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map">
+   Map
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-the-track-commands">
+     Defining the track commands
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files">
+   Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot">
+   Plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#control">
+   Control
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Piloting</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iridium-data-service">
+   Iridium Data Service
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map">
+   Map
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-the-track-commands">
+     Defining the track commands
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files">
+   Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot">
+   Plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#control">
+   Control
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="piloting">
+<span id="id1"></span><h1>Piloting<a class="headerlink" href="#piloting" title="Permalink to this headline">#</a></h1>
+<p>The Sailbuoy (SB) is controlled through Ididium Data Services (IDS) and is done <a class="reference external" href="https://ids.sailbuoy.no">here</a>. Each SB has two parts, Autopilot, which concerns controlling the SB’s movements, and Datalogger, which controlls the sensors. These are considered to be two separate instruments on IDS, as each has its own modem to send data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You cannot control the Datalogger by sending commands to the Autopilot, and vice-versa. Make sure that you send commands to the correct modem.</p>
+</div>
+<section id="iridium-data-service">
+<span id="piloting-ids"></span><h2>Iridium Data Service<a class="headerlink" href="#iridium-data-service" title="Permalink to this headline">#</a></h2>
+<p>The IDS is the piloting software used to pilot and access data from the SB. This service uses the Azure cloud service to achieve the utmost reliability and uptime. As no system is 100% reliable, we oblige to pilot the SB in such a way that we do not put it as risk if the service experiences downtime. The service provides a user-friendly and easy way to communicate with instruments, showing data as text or graphs, displaying positions and tracks on a map, and controlling the instruments. The IDS have five major tabs that are used: <strong><a class="reference internal" href="#piloting-map"><span class="std std-ref">Map</span></a></strong>, <strong><a class="reference internal" href="#piloting-files"><span class="std std-ref">Files</span></a></strong>, <strong><a class="reference internal" href="#piloting-data"><span class="std std-ref">Data</span></a></strong>, <strong><a class="reference internal" href="#piloting-plot"><span class="std std-ref">Plot</span></a></strong>, and <strong><a class="reference internal" href="#piloting-control"><span class="std std-ref">Control</span></a></strong>.</p>
+<hr class="docutils" />
+</section>
+<section id="map">
+<span id="piloting-map"></span><h2>Map<a class="headerlink" href="#map" title="Permalink to this headline">#</a></h2>
+<p>This view shows the instruments position on a world map. The positions are automatically updated on the map as data is received from the instruments. In this view it is possible to select the active instrument. <br></p>
+<aside class="margin sidebar">
+<p class="sidebar-title">The drop down menu to select instrument.</p>
+<figure class="align-default" id="ids-map">
+<img alt="../../_images/select_instrument.png" src="../../_images/select_instrument.png" />
+</figure>
+</aside>
+<figure class="align-default" id="id2">
+<img alt="../../_images/IDS_map.png" src="../../_images/IDS_map.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">: <strong>History</strong>: Shows historical positions. <strong>Layers</strong>: Add different layers to the map. <strong>Track</strong>: Download KML file.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="defining-the-track-commands">
+<span id="piloting-map-defining"></span><h3>Defining the track commands<a class="headerlink" href="#defining-the-track-commands" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="ids-track">
+<img alt="../../_images/track_cmd.png" src="../../_images/track_cmd.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">: By selecting the checkbox under cursor you can activate the mission plan, where you need to define a start and an end waypoint.</span><a class="headerlink" href="#ids-track" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Place waypoints, then copy the waypoint command to send as a <strong><a class="reference internal" href="#piloting-control"><span class="std std-ref">command</span></a></strong>. The waypoint command is not automatically sent from here, it’s just a way to visualize a transect.</p>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="files">
+<span id="piloting-files"></span><h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="files-tab">
+<img alt="../../_images/files.png" src="../../_images/files.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">: The available files sent over Iridium. If the current size is smaller than the size, then all the data was not transmitted. You can download each file by selecting it in the list, and then clicking the <em>“Download Selected File”</em> in the bottom left corner.</span><a class="headerlink" href="#files-tab" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+</section>
+<section id="data">
+<span id="piloting-data"></span><h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="data-tab">
+<img alt="../../_images/data.png" src="../../_images/data.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">: The available data sent over Iridium. You can download all the data by clicking the <em>“Download All as CSV file”</em> in the bottom left corner.</span><a class="headerlink" href="#data-tab" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The columns vary depending on whether you’ve selected <a class="reference internal" href="ap_commands.html#autopilot-data-fields"><span class="std std-ref">Autopilot</span></a> or <a class="reference internal" href="dl_commands.html#datalogger-data-fields"><span class="std std-ref">Datalogger</span></a> in the <a class="reference internal" href="#piloting-map"><span class="std std-ref">Map</span></a> tab.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>IDS do not send alarms, and it is the pilot in charge that is responsible for checking the Autopilot regularly for warnings, leaks, or low battery reported.</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="plot">
+<span id="piloting-plot"></span><h2>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="plot-tab">
+<img alt="../../_images/plot.png" src="../../_images/plot.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">: A simple timeseries of the selected variable.</span><a class="headerlink" href="#plot-tab" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+</section>
+<section id="control">
+<span id="piloting-control"></span><h2>Control<a class="headerlink" href="#control" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="control-tab">
+<img alt="../../_images/control.png" src="../../_images/control.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Sending commands to the SB. More info under <em>Commands or sth</em></span><a class="headerlink" href="#control-tab" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>: This view give access to controlling the instrument by entering text commands. A message log is shown on the right where previous commands can be downloaded.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A password is required to send the commands to the instrument.</p>
+</div>
+<ul class="simple">
+<li><p>Enter a meaningful comment with initials of who sent the command.</p></li>
+<li><p>The commands are written directly in the textbox.</p></li>
+<li><p>Do not enter more than 250 characters per message.</p></li>
+<li><p>The order of the commands is arbitrary.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is no way currently to check the current parameters, so it is very much adviced to wait for a response from the instrument before sending the next message. This allows you to know which set of commands that got taken by the SB. Update on this is pending.</p>
+</div>
+</section>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/dep"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../pre_dep/pre_deployment.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Before deployment</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ap_commands.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Autopilot</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Johan M. Edholm<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

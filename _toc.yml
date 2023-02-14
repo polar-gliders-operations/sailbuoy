@@ -1,0 +1,30 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+
+root: intro
+
+chapters:
+
+- file: chapters/sensors/sensors
+  sections:
+  - file: chapters/sensors/AIRMAR
+  - file: chapters/sensors/CT
+  - file: chapters/sensors/DCPS
+  - file: chapters/sensors/FT742
+  - file: chapters/sensors/RBR
+  - file: chapters/sensors/T9602
+
+- file: chapters/pre_dep/pre_deployment
+
+
+- file: chapters/dep/piloting
+  sections:
+  - file: chapters/dep/ap_commands
+  - file: chapters/dep/dl_commands
+
+
+- file: chapters/post_dep/post_deployment
+
+- file: chapters/manuals/manuals
