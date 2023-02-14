@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Aanderaa DCPS &#8212; Sailbuoy</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/polar_gliders-simple.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="FT742 Wind sensor" href="FT742.html" />
+    <link rel="prev" title="Aanderaa Conductivity" href="CT.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/polar_gliders-simple.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sailbuoy</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sensors.html">
+   Sensors
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="AIRMAR.html">
+     Airmar 200WX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CT.html">
+     Aanderaa Conductivity
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Aanderaa DCPS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="FT742.html">
+     FT742 Wind sensor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="RBR.html">
+     RBR Legato
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T9602.html">
+     Telaire T9602
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pre_dep/pre_deployment.html">
+   Before deployment
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dep/piloting.html">
+   Piloting
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dep/ap_commands.html">
+     Autopilot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dep/dl_commands.html">
+     Datalogger
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../post_dep/post_deployment.html">
+   After deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../manuals/manuals.html">
+   Manuals
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/sensors/DCPS.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/sensors/DCPS.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commands">
+   Commands
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-on">
+     $DCPS.ON
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-rp">
+     $DCPS.RP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-rc">
+     $DCPS.RC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-gps">
+     $DCPS.GPS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-dev">
+     $DCPS.DEV
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-min">
+     $DCPS.MIN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-avg">
+     $DCPS.AVG
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-log">
+     $DCPS.LOG
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-fields">
+   Data fields
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logged-output-from-dcps">
+   Logged output from DCPS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algorithm">
+   Algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dcps-configuration">
+   DCPS configuration
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Aanderaa DCPS</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commands">
+   Commands
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-on">
+     $DCPS.ON
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-rp">
+     $DCPS.RP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-rc">
+     $DCPS.RC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-gps">
+     $DCPS.GPS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-dev">
+     $DCPS.DEV
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-min">
+     $DCPS.MIN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-avg">
+     $DCPS.AVG
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcps-log">
+     $DCPS.LOG
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-fields">
+   Data fields
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logged-output-from-dcps">
+   Logged output from DCPS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algorithm">
+   Algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dcps-configuration">
+   DCPS configuration
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="aanderaa-dcps">
+<span id="sensors-adcp"></span><h1>Aanderaa DCPS<a class="headerlink" href="#aanderaa-dcps" title="Permalink to this headline">#</a></h1>
+<p>The Aanderaa Doppler Current Profiler Sensor is an acoustic current profiling sensor based on the Doppler shift principle. It can operate either in narrowband or in broadband mode; the two measurement techniques are described in <a class="reference external" href="https://www.aanderaa.com/media/pdfs/td310-dcps-primer.pdf">TD310</a>, Primer for Doppler Current Profiler. Broadband is only recommended to use in fixed installation, not on moving platforms.</p>
+<figure class="align-default" id="dcps">
+<img alt="../../_images/DCPS.jpg" src="../../_images/DCPS.jpg" />
+</figure>
+<hr class="docutils" />
+<section id="commands">
+<span id="adcp-commands"></span><h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#adcp-commands-dcps-on"><span class="std std-ref">$DCPS.ON</span></a></strong></p></td>
+<td><p>Enables the DCPS</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p><a class="reference internal" href="#adcp-commands-dcps-on"><span class="std std-ref">$DCPS.ON</span></a> 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#adcp-commands-dcps-rp"><span class="std std-ref">$DCPS.RP</span></a></strong></p></td>
+<td><p><a class="reference internal" href="../dep/dl_commands.html#datalogger-basic-common-runorder"><span class="std std-ref">Run order</span></a> (1-9)</p></td>
+<td><p>1</p></td>
+<td><p>9</p></td>
+<td><p><a class="reference internal" href="#adcp-commands-dcps-rp"><span class="std std-ref">$DCPS.RP</span></a> 3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#adcp-commands-dcps-rc"><span class="std std-ref">$DCPS.RC</span></a></strong></p></td>
+<td><p><a class="reference internal" href="../dep/dl_commands.html#datalogger-basic-common-runorder"><span class="std std-ref">Run counter</span></a></p></td>
+<td><p>1</p></td>
+<td><p>-</p></td>
+<td><p><a class="reference internal" href="#adcp-commands-dcps-rc"><span class="std std-ref">$DCPS.RC</span></a> 10</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#adcp-commands-dcps-gps"><span class="std std-ref">$DCPS.GPS</span></a></strong></p></td>
+<td><p>Enables the GPS</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p><a class="reference internal" href="#adcp-commands-dcps-gps"><span class="std std-ref">$DCPS.GPS</span></a> 1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#adcp-commands-dcps-dev"><span class="std std-ref">$DCPS.DEV</span></a></strong></p></td>
+<td><p>Magnetic declination</p></td>
+<td><p>-180</p></td>
+<td><p>180</p></td>
+<td><p><a class="reference internal" href="#adcp-commands-dcps-dev"><span class="std std-ref">$DCPS.DEV</span></a> -21</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#adcp-commands-dcps-min"><span class="std std-ref">$DCPS.MIN</span></a></strong></p></td>
+<td><p>Measurement time</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#adcp-commands-dcps-min"><span class="std std-ref">$DCPS.MIN</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#adcp-commands-dcps-avg"><span class="std std-ref">$DCPS.AVG</span></a></strong></p></td>
+<td><p>Number of cells to average</p></td>
+<td><p>0</p></td>
+<td><p>-</p></td>
+<td><p><a class="reference internal" href="#adcp-commands-dcps-avg"><span class="std std-ref">$DCPS.AVG</span></a> 6</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#adcp-commands-dcps-log"><span class="std std-ref">$DCPS.LOG</span></a></strong></p></td>
+<td><p>Log to disk</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p><a class="reference internal" href="#adcp-commands-dcps-log"><span class="std std-ref">$DCPS.LOG</span></a> 1</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<section id="dcps-on">
+<span id="adcp-commands-dcps-on"></span><h3>$DCPS.ON<a class="headerlink" href="#dcps-on" title="Permalink to this headline">#</a></h3>
+<p>Description: Enable the DCPS <br>
+No. of parameters: 1 <br>
+Unit: - <br>
+Parameter type: integer <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: 1 <br>
+Example: $DCPS.ON 1 <br></p>
+<p>Enables the DCPS, <a class="reference internal" href="#adcp-commands-dcps-on"><span class="std std-ref">$DCPS.ON 1</span></a> to turn it on, and <a class="reference internal" href="#adcp-commands-dcps-on"><span class="std std-ref">$DCPS.ON 0</span></a> to turn it off. This can be useful to conserve battery.</p>
+<hr class="docutils" />
+</section>
+<section id="dcps-rp">
+<span id="adcp-commands-dcps-rp"></span><h3>$DCPS.RP<a class="headerlink" href="#dcps-rp" title="Permalink to this headline">#</a></h3>
+<p>Description: Run order <br>
+No. of parameters: 1 <br>
+Unit: - <br>
+Parameter type: integer <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: 9 <br>
+Example: $DCPS.RP 1 <br></p>
+<p>Sets the Run order for the sensor. See <a class="reference internal" href="../dep/dl_commands.html#datalogger-basic-common-runorder"><span class="std std-ref">Run order</span></a></p>
+<hr class="docutils" />
+</section>
+<section id="dcps-rc">
+<span id="adcp-commands-dcps-rc"></span><h3>$DCPS.RC<a class="headerlink" href="#dcps-rc" title="Permalink to this headline">#</a></h3>
+<p>Description: Run counter <br>
+No. of parameters: 1 <br>
+Unit: - <br>
+Parameter type: integer <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: - <br>
+Example: $DCPS.RC 1 <br></p>
+<p>Sets the Run counter for the sensor. See <a class="reference internal" href="../dep/dl_commands.html#datalogger-basic-common-runcounter"><span class="std std-ref">Run counter</span></a></p>
+<hr class="docutils" />
+</section>
+<section id="dcps-gps">
+<span id="adcp-commands-dcps-gps"></span><h3>$DCPS.GPS<a class="headerlink" href="#dcps-gps" title="Permalink to this headline">#</a></h3>
+<p>Description: Enable the GPS <br>
+No. of parameters: 1 <br>
+Unit: - <br>
+Parameter type: integer <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: 2 <br>
+Example: $DCPS.GPS 1 <br></p>
+<p>To compensate for vehicle movement the GPS must be enabled. <strong>DCPS.GPS</strong> = 1: The GPS is left powered on when the DCPS is acquiring data (faster fix). <strong>DCPS.GPS</strong> = 2: The GPS is powered off when the DCPS is acquiring data(saves power)</p>
+<hr class="docutils" />
+</section>
+<section id="dcps-dev">
+<span id="adcp-commands-dcps-dev"></span><h3>$DCPS.DEV<a class="headerlink" href="#dcps-dev" title="Permalink to this headline">#</a></h3>
+<p>Description: Set the magnetic declination <br>
+No. of parameters: 1 <br>
+Unit: degrees <br>
+Parameter type: integer <br>
+Minimum parameter value: -180 <br>
+Maximum parameter value: 180 <br>
+Example: $DCPS.DEV -21 <br></p>
+<p>The magnetic deviation used when transmitting surface currents. This will need to be set depending on location, Baltic Sea is ~+4°, while the SO can be ~-20°. Find out more about magnetic declination <a class="reference external" href="https://en.wikipedia.org/wiki/Magnetic_declination">here</a></p>
+<hr class="docutils" />
+</section>
+<section id="dcps-min">
+<span id="adcp-commands-dcps-min"></span><h3>$DCPS.MIN<a class="headerlink" href="#dcps-min" title="Permalink to this headline">#</a></h3>
+<p>Description: Measurement time <br>
+No. of parameters: 1 <br>
+Unit: minutes <br>
+Parameter type: integer <br>
+Minimum parameter value: 2 <br>
+Maximum parameter value: - <br>
+Example: $DCPS.MIN 4 <br></p>
+<p>The number of minutes the DCPS is set to acquire data. This setting should be set on 2 min intervals. 2,4,6,8 minutes etc., depending on the DCPS configuration.</p>
+<hr class="docutils" />
+</section>
+<section id="dcps-avg">
+<span id="adcp-commands-dcps-avg"></span><h3>$DCPS.AVG<a class="headerlink" href="#dcps-avg" title="Permalink to this headline">#</a></h3>
+<p>Description: Cell averaging <br>
+No. of parameters: 1 <br>
+Unit: - <br>
+Parameter type: integer <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: - <br>
+Example: $DCPS.AVG 6 <br></p>
+<p>The number of cells down from surface used to calculate the average current.</p>
+<hr class="docutils" />
+</section>
+<section id="dcps-log">
+<span id="adcp-commands-dcps-log"></span><h3>$DCPS.LOG<a class="headerlink" href="#dcps-log" title="Permalink to this headline">#</a></h3>
+<p>Description: Log output <br>
+No. of parameters: 1 <br>
+Unit: - <br>
+Parameter type: integer <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: 1 <br>
+Example: $DCPS.LOG 1 <br></p>
+<p>Log sensor output to disk.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="data-fields">
+<span id="adcp-data-fields"></span><h2>Data fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">#</a></h2>
+<p>In the Datalogger data tab the following columns are displayed:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">Status indicator bits:</p>
+<p>0: No errors <br>
+1: Memory error  <br>
+2: File Open error  <br>
+4: Timeout error  <br>
+8: GPS error  <br></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The binary sytem makes it possible for the sensor to communicate more than one error. E.g., if we see 9, we know that there was a memory and GPS error.</p>
+</div>
+</aside>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DCPSStatus</p></td>
+<td><p>Status indicator</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCPSOnMin</p></td>
+<td><p>Acquisition time.</p></td>
+<td><p>minutes</p></td>
+</tr>
+<tr class="row-even"><td><p>DCPSSpeed</p></td>
+<td><p>Average current speed.</p></td>
+<td><p>m/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCPSDirection</p></td>
+<td><p>Average current direction.</p></td>
+<td><p>degrees</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p>The DCPS is preconfigured when delivered, and if you are reconfiguring the DCPS, make sure the output from the DCPS contain at least these values:</p>
+<ul class="simple">
+<li><p>Cell Index</p></li>
+<li><p>Horizontal Speed[cm/s]</p></li>
+<li><p>Direction[Deg.M]</p></li>
+</ul>
+<p>This is so that the datalogger will be able to process the DCPS data. All other values will be ignored, but saved in the DCPS.txt.</p>
+<p>To make changes to the internal sensor settings, make sure to follow the step outlined in the <span class="xref myst"></span>, until you get to the <a class="reference internal" href="../dep/dl_commands.html#datalogger-basic-menu-directserial"><span class="std std-ref">Direct serial</span></a>. After you have closed the terminal, you can use the manufacturers own software to make changes. This described more under <a class="reference internal" href="#adcp-configuration"><span class="std std-ref">DCPS configuration</span></a>.</p>
+</section>
+<section id="logged-output-from-dcps">
+<span id="adcp-output"></span><h2>Logged output from DCPS<a class="headerlink" href="#logged-output-from-dcps" title="Permalink to this headline">#</a></h2>
+<p>The following output is saved to “DCPS.TXT” file on disk</p>
+<ul class="simple">
+<li><p><span style="color:black">Black text</span>: This text is generated by the datalogger and contains date/time of the internal datalogger clock when saving to disk</p></li>
+<li><p><span style="color:green">Green text</span>: This is the direct raw output of the DSCP instrument. To process this data, see DCPS manuals.</p></li>
+<li><p><span style="color:Blue">Blue text</span>: This is the calculated current speed and direction calculated by the datalogger based on the raw DCPS output. Units are m/s and degrees.</p></li>
+<li><p><span style="color:red">Red text</span>: GPS position and time of when the DCPS started and stopped acquisition.</p></li>
+</ul>
+<p>Sensor log example (DCPS.TXT)</p>
+<p>Sensorlog opened 23.06.2020 09:02:35 <span style="color:red">GPS: 23.06.2020 09:02:35 60.17471 5.49304 </span><br>
+<span style="color:green">% <br>
+StartupInfo 5400 460 Mode AADI Smart Sensor Terminal Protocol……. <br>
+Initializing… <br>
+Started… <br>
+MEASUREMENT 5400 460 Heading[Deg.M] 2.941192E-01…… </span><br>
+<span style="color:blue">*** Processed data: Deviation 0.00 deg <br>
+Cell   0  Speed0.1154 Dir 337.8443   East -0.0435   North 0.1069   <br>
+Cell   1  Speed 0.1163 Dir 359.2926   East -0.0014   North 0.1162   <br>
+Cell   2  Speed 0.1133 Dir 356.9538   East -0.0060   North 0.1132   <br>
+Cell   3  Speed 0.1026 Dir 353.6823   East -0.0113   North 0.1020   <br>
+Cell   4  Speed 0.0764 Dir 65.6921   East 0.0696   North 0.0314  <br>
+… </span><br>
+Sensorlog closed 23.06.2020 09:05:05 <span style="color:red">GPS: 23.06.2020 09:05:01 60.17569 5.49435 </span><br></p>
+</section>
+<section id="algorithm">
+<span id="adcp-algorithm"></span><h2>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">#</a></h2>
+<p>The following algorithm is used to process the data:</p>
+<ul class="simple">
+<li><p>Read direction and speed for each cell from the DCPS in the <span style="color:green">“MEASUREMENT”</span> line</p></li>
+<li><p>Converts direction and speed to northing and easting speed.</p></li>
+<li><p>Calculatean average northing and easting speed for each cell if multiple records are received.</p></li>
+<li><p>Subtracts (actually add) the northing and easting speed derived from the GPS position at start and end of the acquisition, from each cell.</p></li>
+<li><p>Calculate the average northing and easting speed from the first N cells (decided by <a class="reference internal" href="#adcp-commands-dcps-avg"><span class="std std-ref">$DCPS.AVG</span></a>).</p></li>
+<li><p>Convert the average to direction and speed (this is the surface current).</p></li>
+</ul>
+</section>
+<section id="dcps-configuration">
+<span id="adcp-configuration"></span><h2>DCPS configuration<a class="headerlink" href="#dcps-configuration" title="Permalink to this headline">#</a></h2>
+<p>To configure the internal sensor settings, cell size,</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/sensors"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="CT.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Aanderaa Conductivity</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="FT742.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">FT742 Wind sensor</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Johan M. Edholm<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

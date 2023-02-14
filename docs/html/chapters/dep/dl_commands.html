@@ -1,0 +1,1257 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Datalogger &#8212; Sailbuoy</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/polar_gliders-simple.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="After deployment" href="../post_dep/post_deployment.html" />
+    <link rel="prev" title="Autopilot" href="ap_commands.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/polar_gliders-simple.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sailbuoy</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sensors/sensors.html">
+   Sensors
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sensors/DCPS.html">
+     Aanderaa DCPS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pre_dep/pre_deployment.html">
+   Before deployment
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="piloting.html">
+   Piloting
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ap_commands.html">
+     Autopilot
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Datalogger
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../post_dep/post_deployment.html">
+   After deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../manuals/manuals.html">
+   Manuals
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/dep/dl_commands.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/dep/dl_commands.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-functionality">
+   Basic functionality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acquisition-loop">
+     Acquisition loop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#turning-on-off">
+     Turning on/off
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connecting">
+     Connecting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main-menu">
+     Main menu
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sensor-menu">
+       Sensor menu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#file-menu">
+       File menu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#direct-serial">
+       Direct serial
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-files">
+       Download files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delete-files">
+       Delete files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#log-datalogger-output">
+       Log datalogger output
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-sensor-parameters">
+     Common sensor parameters
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#run-order">
+       Run order
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#run-counter">
+       Run counter
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#battery-voltage-and-solar-panels">
+     Battery voltage and solar panels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#restarting">
+     Restarting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commands">
+   Commands
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logrt">
+     $LOGRT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lrmin">
+     $LRMIN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#txper">
+     $TXPER
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strdl">
+     $STRDL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable">
+     $ENABLE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#disable">
+     $DISABLE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sendfile">
+     $SENDFILE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#irifs">
+     $IRIFS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dir">
+     $DIR
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save">
+     $SAVE
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-fields">
+   Data fields
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Datalogger</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-functionality">
+   Basic functionality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acquisition-loop">
+     Acquisition loop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#turning-on-off">
+     Turning on/off
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connecting">
+     Connecting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main-menu">
+     Main menu
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sensor-menu">
+       Sensor menu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#file-menu">
+       File menu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#direct-serial">
+       Direct serial
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-files">
+       Download files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delete-files">
+       Delete files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#log-datalogger-output">
+       Log datalogger output
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-sensor-parameters">
+     Common sensor parameters
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#run-order">
+       Run order
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#run-counter">
+       Run counter
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#battery-voltage-and-solar-panels">
+     Battery voltage and solar panels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#restarting">
+     Restarting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commands">
+   Commands
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logrt">
+     $LOGRT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lrmin">
+     $LRMIN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#txper">
+     $TXPER
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strdl">
+     $STRDL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable">
+     $ENABLE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#disable">
+     $DISABLE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sendfile">
+     $SENDFILE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#irifs">
+     $IRIFS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dir">
+     $DIR
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save">
+     $SAVE
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-fields">
+   Data fields
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="datalogger">
+<span id="id1"></span><h1>Datalogger<a class="headerlink" href="#datalogger" title="Permalink to this headline">#</a></h1>
+<section id="basic-functionality">
+<span id="datalogger-basic"></span><h2>Basic functionality<a class="headerlink" href="#basic-functionality" title="Permalink to this headline">#</a></h2>
+<section id="acquisition-loop">
+<span id="datalogger-basic-acq-loop"></span><h3>Acquisition loop<a class="headerlink" href="#acquisition-loop" title="Permalink to this headline">#</a></h3>
+<p>In run mode the datalogger does the following in sequence:</p>
+<ol class="simple">
+<li><p>Get GPS fix (10-20 s)</p></li>
+<li><p>Get internal sensor values (1 s)</p></li>
+<li><p>Startup delay</p></li>
+<li><p>Get sensor 1 data (time defined in the configuration)</p></li>
+<li><p>Get sensor 2 data (time defined in the configuration)</p></li>
+<li><p>Get sensor …</p></li>
+<li><p>Send data (30-120 s) TX</p></li>
+<li><p>Receive commands (10 s) RX</p></li>
+<li><p>Low power mode (rest of the log interval)</p></li>
+</ol>
+<figure class="align-default" id="aquisition-loop">
+<img alt="../../_images/acq_loop.png" src="../../_images/acq_loop.png" />
+</figure>
+<p>The datalogger has a watchdog timer that resets every 1.5 hours. If the log rate period is set to more than this or the software hangs for some reason the system is reset. After reset the datalogger restarts with the saved default configuration. The watchdog timer is turned off when downloading data, enabling the download to continue for several hours.</p>
+<p>All sensors are disabled on power up and have to be actively enabled. This is to prevent sensors being switched on if a reboot occurs during a mission. A reboot can occur if a sensor malfunction causes the battery voltage to spike or the batteries are empty. When starting the datalogger all sensors are disabled by default and have to be actively switched on by sending the <a class="reference internal" href="#datalogger-commands-enable"><span class="std std-ref">$ENABLE</span></a> command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sensors will automatically be deactivated when the voltage falls below a preset level
+(battery level is ~ 10%)</p>
+</div>
+<p>When the datalogger is powered off the configuration reverts back to the saved settings. The datalogger has the ability to send small files. This is used by some sensors to send images or other kind of files.</p>
+<hr class="docutils" />
+</section>
+<section id="turning-on-off">
+<span id="datalogger-basic-switch"></span><h3>Turning on/off<a class="headerlink" href="#turning-on-off" title="Permalink to this headline">#</a></h3>
+<p>The datalogger is powered up by <strong>removing</strong> the magnetic switch. It is switched off by placing the magnetic switch back on the Velcro pad.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The solar panels will charge the batteries regardless if the datalogger is on or off.</p>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/datalogger.png"><img alt="../../_images/datalogger.png" src="../../_images/datalogger.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">The cap to the datalogger serial connector.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</aside>
+<figure class="align-default" id="connect">
+<a class="reference internal image-reference" href="../../_images/connecting.png"><img alt="../../_images/connecting.png" src="../../_images/connecting.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The aft of the Sailbuoy, showing the magnetic switches for the datalogger and <a class="reference internal" href="ap_commands.html#autopilot"><span class="std std-ref">Autopilot</span></a>, as well as the serial cable connected to the datalogger port.</span><a class="headerlink" href="#connect" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The serial port is used to communicate with the Datalogger. It can be used to configure the datalogger and monitor the datalogger output when running. The serial port will stop transmitting data after a while when the datalogger is running.</p>
+<hr class="docutils" />
+</section>
+<section id="connecting">
+<span id="datalogger-basic-connecting"></span><h3>Connecting<a class="headerlink" href="#connecting" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Connect your PC with the Datalogger using the supplied serial cable to the serial port.</p></li>
+<li><p>Start Terraterm and select the correct serial port at 9600 baud.</p></li>
+<li><p>Power on the datalogger by removing the magnetic switch.</p></li>
+<li><p>Some text will appear in the terminal, press ESC within 60 seconds to enter the menu system.</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="main-menu">
+<span id="datalogger-basic-menu"></span><h3>Main menu<a class="headerlink" href="#main-menu" title="Permalink to this headline">#</a></h3>
+<p>Once you’ve completed the steps in <a class="reference internal" href="#datalogger-basic-connecting"><span class="std std-ref">Connecting</span></a>, you are greeted by the main menu of the datalogger. In this menu the configuration of the datalogger can be changed. By selecting <code class="docutils literal notranslate"><span class="pre">'*'</span> <span class="pre">:Run</span></code> the datalogger will enter run mode. Entering run mode via the menu system will enable all sensors by default. They are otherwise disabled and have to be enabled remotely.</p>
+<p>The menu system responds to the following keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RET</span></code> (Enter) will display the menu again.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ESC</span></code> will exit a submenu.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SPACE</span></code> is to enter a note.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MAIN</span> <span class="n">MENU</span> <span class="mf">01.01.2019</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+<span class="s1">&#39;0&#39;</span><span class="p">:</span> <span class="n">Sensor</span> <span class="n">menu</span>
+<span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="n">File</span> <span class="n">menu</span>
+<span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="n">Direct</span> <span class="n">Serial</span> <span class="n">menu</span>
+<span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="n">Print</span> <span class="n">Configuration</span>
+<span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="n">Edit</span> <span class="n">Configuration</span>
+<span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="n">Save</span> <span class="n">Configuration</span>
+<span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="n">Set</span> <span class="n">Date</span> <span class="n">Time</span>
+<span class="s1">&#39;*&#39;</span><span class="p">:</span> <span class="n">Run</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="sensor-menu">
+<span id="datalogger-basic-menu-sensormenu"></span><h4>Sensor menu<a class="headerlink" href="#sensor-menu" title="Permalink to this headline">#</a></h4>
+<p>This menu is used to run each individual sensor with the current configuration. The content of this menu depends on which sensors are installed. It is also possible to run the GPS, Iridium modem and check the battery voltage.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SENSOR</span> <span class="n">MENU</span> <span class="mf">01.01.2019</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">55</span>
+<span class="s1">&#39;5&#39;</span><span class="p">:</span> <span class="n">Sensor</span> <span class="mi">1</span>
+<span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">Sensor</span> <span class="mi">2</span>
+<span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="n">GPS</span>
+<span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="n">Iridium</span> <span class="n">SBD</span>
+<span class="s1">&#39;V&#39;</span><span class="p">:</span> <span class="n">Battery</span> <span class="n">Voltage</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="file-menu">
+<span id="datalogger-basic-menu-filemenu"></span><h4>File menu<a class="headerlink" href="#file-menu" title="Permalink to this headline">#</a></h4>
+<p>This menu is used to download files and show the disk content. To erase all files see <a class="reference internal" href="#datalogger-basic-menu-delete"><span class="std std-ref">Delete files</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FILE</span> <span class="n">MENU</span> <span class="n">MENU</span> <span class="mf">01.01.2019</span> <span class="mi">00</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">38</span>
+<span class="s1">&#39;3&#39;</span><span class="p">:</span> <span class="n">Download</span> <span class="n">files</span> <span class="n">Ymodem</span>
+<span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="n">Download</span> <span class="n">one</span> <span class="n">file</span> <span class="n">Ymodem</span>
+<span class="s1">&#39;7&#39;</span><span class="p">:</span> <span class="n">Format</span> <span class="n">drive</span>
+<span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="n">Display</span> <span class="n">files</span>
+<span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="n">Print</span> <span class="n">file</span> <span class="n">to</span> <span class="n">screen</span>
+<span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">Change</span> <span class="n">baudrate</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="direct-serial">
+<span id="datalogger-basic-menu-directserial"></span><h4>Direct serial<a class="headerlink" href="#direct-serial" title="Permalink to this headline">#</a></h4>
+<p>This menu is used to connect directly to each individual sensor. The sensor is switched on and the serial cable is connected directly to the sensors. This functionality can be used to connect the sensor to supplier software. Often used for sensor configuration. When the sensor is selected the datalogger becomes transparent.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To unlock the serial port, close the terminal editor before opening any software configuration tool.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DIRECT</span> <span class="n">SERIAL</span> <span class="n">MENU</span> <span class="mf">01.01.2019</span> <span class="mi">00</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">30</span>
+<span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="n">Sensor</span> <span class="mi">1</span>
+<span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="n">Sensor</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="download-files">
+<span id="datalogger-basic-menu-download"></span><h4>Download files<a class="headerlink" href="#download-files" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">‘1’</span></code> to enter the file menu.</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">‘B’</span></code> to change the baud rate and enter a higher value (i.e. 115 200 baud) to optimise download speed, and set the same value for Tera Term (<code class="docutils literal notranslate"><span class="pre">Setup-&gt;Serial</span> <span class="pre">Port...</span> <span class="pre">Speed</span></code>).</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">RET</span></code> to display the menu.</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">‘3’:</span> <span class="pre">Download</span> <span class="pre">files</span> <span class="pre">Ymodem</span></code>. The datalogger is now waiting for Tera Term to initiate the download.</p></li>
+<li><p>Initiate the download by selecting the Tera Term menu item <code class="docutils literal notranslate"><span class="pre">File-&gt;Transfer-&gt;YMODEM-&gt;Receive...</span></code> (The download should begin immediately. If the download fails, try an alternative: <code class="docutils literal notranslate"><span class="pre">File-&gt;Transfer-&gt;XMODEM-&gt;Receive...</span></code>).</p></li>
+<li><p>When the download is finished press return to display the datalogger menu.</p></li>
+<li><p>You can now exit Tera Term and put back the magnetic switch.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is extremely important that step 6 is not disturbed in any way.</p>
+</div>
+<figure class="align-default" id="terraterm">
+<a class="reference internal image-reference" href="../../_images/terraterm.png"><img alt="../../_images/terraterm.png" src="../../_images/terraterm.png" style="width: 100%;" /></a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During the data download the watchdog timer is disabled.</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="delete-files">
+<span id="datalogger-basic-menu-delete"></span><h4>Delete files<a class="headerlink" href="#delete-files" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Enter the file menu.</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">'7':</span> <span class="pre">Format</span> <span class="pre">drive</span></code></p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">'D':</span> <span class="pre">Display</span> <span class="pre">files</span> <span class="pre">to</span> <span class="pre">ensure</span> <span class="pre">the</span> <span class="pre">disk</span> <span class="pre">is</span> <span class="pre">empty</span></code></p></li>
+<li><p>Press RET to display the menu.</p></li>
+</ol>
+</section>
+<section id="log-datalogger-output">
+<h4>Log datalogger output<a class="headerlink" href="#log-datalogger-output" title="Permalink to this headline">#</a></h4>
+<p>To keep track of the changes made to the system it is good practive to log all the output from the datalogger to a file.</p>
+<figure class="align-default" id="log1">
+<a class="reference internal image-reference" href="../../_images/log1.png"><img alt="../../_images/log1.png" src="../../_images/log1.png" style="width: 100%;" /></a>
+</figure>
+<figure class="align-default" id="log2">
+<a class="reference internal image-reference" href="../../_images/log2.png"><img alt="../../_images/log2.png" src="../../_images/log2.png" style="width: 100%;" /></a>
+</figure>
+<hr class="docutils" />
+</section>
+</section>
+<section id="common-sensor-parameters">
+<span id="datalogger-basic-common"></span><h3>Common sensor parameters<a class="headerlink" href="#common-sensor-parameters" title="Permalink to this headline">#</a></h3>
+<section id="run-order">
+<span id="datalogger-basic-common-runorder"></span><h4>Run order<a class="headerlink" href="#run-order" title="Permalink to this headline">#</a></h4>
+<p>Each sensor has a RunOrder configuration value. This value decides in which order the sensors are run. The RunOrder value can be set to any number between 1 and 9.</p>
+<p>The sensor with the lowest value will be run first.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Example</span> <span class="mi">1</span><span class="p">:</span>
+<span class="n">Sensor1</span> <span class="n">RunOrder</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Sensor2</span> <span class="n">RunOrder</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Sensor3</span> <span class="n">RunOrder</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">Sensor</span> <span class="mi">1</span> <span class="n">will</span> <span class="n">be</span> <span class="n">run</span> <span class="n">first</span><span class="p">,</span> <span class="n">then</span> <span class="n">sensor</span> <span class="mi">2</span><span class="p">,</span> <span class="n">then</span> <span class="n">sensor</span> <span class="mf">3.</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="run-counter">
+<span id="datalogger-basic-common-runcounter"></span><h4>Run counter<a class="headerlink" href="#run-counter" title="Permalink to this headline">#</a></h4>
+<p>Each sensor has a RunCounter configuration value. This value decides how often the sensor is run. If RunCounter = 1 the sensor is run each
+acquisition period. If RunCounter = 2 the sensor is run every second period and so on. The maximum value is 255.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If two or more sensors have the same RunCounter value, they will run in the same acquisition period.</p>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="battery-voltage-and-solar-panels">
+<span id="datalogger-basic-battery"></span><h3>Battery voltage and solar panels<a class="headerlink" href="#battery-voltage-and-solar-panels" title="Permalink to this headline">#</a></h3>
+<p>The solar panels are connected to the batteries by a charging circuit. This circuit is always active regardless if the datalogger is switched on or off. The battery voltage gives information about the charge of the battery. The battery is fully charged at 13.3V. Any voltage above this is due to the solar panels increasing the voltage. At 13.0V the battery has around 50% charge left falling to about 15% at 12.7V. At this voltage the datalogger automatically turns the sensors off to preserve energy for the Iridium communication and GPS.</p>
+<hr class="docutils" />
+</section>
+<section id="restarting">
+<span id="datalogger-basic-restarting"></span><h3>Restarting<a class="headerlink" href="#restarting" title="Permalink to this headline">#</a></h3>
+<p>The datalogger can be restarted at any point in time without damaging the electronics. In some cases,a sensor does not like being switched off in the middle of an acquisition. Upon restart the datalogger will start with the saved default configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To restart the datalogger first switch it off with the magnetic switch, wait 60 seconds, then remove the magnetic switch to start again.</p>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="commands">
+<span id="datalogger-commands"></span><h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>No Parameters</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+<th class="head"><p>Recommended</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#datalogger-commands-logrt"><span class="std std-ref">$LOGRT</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Log rate in seconds</p></td>
+<td><p>60</p></td>
+<td><p>3600</p></td>
+<td><p>900</p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-logrt"><span class="std std-ref">$LOGRT</span></a> 1800</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#datalogger-commands-lrmin"><span class="std std-ref">$LRMIN</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Log rate in minutes</p></td>
+<td><p>1</p></td>
+<td><p>60</p></td>
+<td><p>15</p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-lrmin"><span class="std std-ref">$LRMIN</span></a> 30</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#datalogger-commands-txper"><span class="std std-ref">$TXPER</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Only transmit every N acquisitions</p></td>
+<td><p>1</p></td>
+<td><p>24</p></td>
+<td><p>1</p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-txper"><span class="std std-ref">$TXPER</span></a> 10</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#datalogger-commands-strdl"><span class="std std-ref">$STRDL</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Sensor start up delay in seconds</p></td>
+<td><p>0</p></td>
+<td><p>1800</p></td>
+<td><p>150</p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-strdl"><span class="std std-ref">$STRDL</span></a> 60</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#datalogger-commands-enable"><span class="std std-ref">$ENABLE</span></a></strong></p></td>
+<td><p>0</p></td>
+<td><p>Enable sensors</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-enable"><span class="std std-ref">$ENABLE</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#datalogger-commands-disable"><span class="std std-ref">$DISABLE</span></a></strong></p></td>
+<td><p>0</p></td>
+<td><p>Disable sensors</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-disable"><span class="std std-ref">$DISABLE</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#datalogger-commands-irifs"><span class="std std-ref">$IRIFS</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Send byte limit</p></td>
+<td><p>0</p></td>
+<td><p></p></td>
+<td><p>5000</p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-irifs"><span class="std std-ref">$IRIFS</span></a> 5000</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#datalogger-commands-sendfile"><span class="std std-ref">$SENDFILE</span></a></strong></p></td>
+<td><p>2</p></td>
+<td><p>Send end part of file</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-sendfile"><span class="std std-ref">$SENDFILE</span></a> TMP.TXT 1000</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#datalogger-commands-dir"><span class="std std-ref">$DIR</span></a></strong></p></td>
+<td><p>0</p></td>
+<td><p>Send disk listing</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-dir"><span class="std std-ref">$DIR</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#datalogger-commands-save"><span class="std std-ref">$SAVE</span></a></strong></p></td>
+<td><p>0</p></td>
+<td><p>Save current configuration</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#datalogger-commands-save"><span class="std std-ref">$SAVE</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<section id="logrt">
+<span id="datalogger-commands-logrt"></span><h3>$LOGRT<a class="headerlink" href="#logrt" title="Permalink to this headline">#</a></h3>
+<p>Description: Lograte <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: seconds <br>
+Minimum parameter value: 60 <br>
+Maximum parameter value: 3600 <br>
+Example: $LOGRT 900 <br></p>
+<p>This configuration value decides the acquisition period. This value is the period in seconds. <a class="reference internal" href="#datalogger-commands-logrt"><span class="std std-ref">$LOGRT 900</span></a> sets the acquisition period to 15 minutes. This is interchangeable with <a class="reference internal" href="#datalogger-commands-lrmin"><span class="std std-ref">$LRMIN</span></a>.</p>
+<hr class="docutils" />
+</section>
+<section id="lrmin">
+<span id="datalogger-commands-lrmin"></span><h3>$LRMIN<a class="headerlink" href="#lrmin" title="Permalink to this headline">#</a></h3>
+<p>Description: Lograte <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: minutes <br>
+Minimum parameter value: 1 <br>
+Maximum parameter value: 60 <br>
+Example: $LRMIN 15 <br></p>
+<p>This configuration value decides the acquisition period. This value is the period in minutes. <a class="reference internal" href="#datalogger-commands-lrmin"><span class="std std-ref">$LRMIN 15</span></a> sets the acquisition period to 15 minutes. This is interchangeable with <a class="reference internal" href="#datalogger-commands-logrt"><span class="std std-ref">$LOGRT</span></a>.</p>
+<hr class="docutils" />
+</section>
+<section id="txper">
+<span id="datalogger-commands-txper"></span><h3>$TXPER<a class="headerlink" href="#txper" title="Permalink to this headline">#</a></h3>
+<p>Description: Transmission frequency <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: - <br>
+Minimum parameter value: 1 <br>
+Maximum parameter value: 24 <br>
+Example: $TXPER 1 <br></p>
+<p>This configuration value decides how often a message is transmitted. A value of 1 will tell the datalogger to transmit each time it has run the sensors. Sending <a class="reference internal" href="#datalogger-commands-txper"><span class="std std-ref">$TXPER 10</span></a> tells the datalogger to transmit every 10th acquisition period.</p>
+<hr class="docutils" />
+</section>
+<section id="strdl">
+<span id="datalogger-commands-strdl"></span><h3>$STRDL<a class="headerlink" href="#strdl" title="Permalink to this headline">#</a></h3>
+<p>Description: Start up delay <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: seconds <br>
+Minimum parameter value: 1 <br>
+Maximum parameter value: 1800 <br>
+Example: $STRDL 150 <br></p>
+<p>Sensor start up delay: A delay can be configured to start the sensor acquisition a set number of seconds after the datalogger starts a new acquisition period. Sending <a class="reference internal" href="#datalogger-commands-strdl"><span class="std std-ref">$STRDL 150</span></a> tells the sensor acquisition to start 150 seconds after power up. It is recommended to use at least 2 minutes when using the DCPS.</p>
+<hr class="docutils" />
+</section>
+<section id="enable">
+<span id="datalogger-commands-enable"></span><h3>$ENABLE<a class="headerlink" href="#enable" title="Permalink to this headline">#</a></h3>
+<p>Description: Enable sensor aquisition <br>
+No. of parameters: 0 <br>
+Parameter type: integer <br>
+Unit: - <br>
+Minimum parameter value: - <br>
+Maximum parameter value: - <br>
+Example: $ENABLE <br></p>
+<p>The datalogger always starts up with the sensors disabled. To enable the sensor acquisition, the command <a class="reference internal" href="#datalogger-commands-enable"><span class="std std-ref">$ENABLE</span></a> must be sent. The sensors will then run according to their configuration.</p>
+<hr class="docutils" />
+</section>
+<section id="disable">
+<span id="datalogger-commands-disable"></span><h3>$DISABLE<a class="headerlink" href="#disable" title="Permalink to this headline">#</a></h3>
+<p>Description: Disable sensor aquisition <br>
+No. of parameters: 0 <br>
+Parameter type: integer <br>
+Unit: - <br>
+Minimum parameter value: - <br>
+Maximum parameter value: - <br>
+Example: $DISABLE <br></p>
+<p>This command disables the sensor acquisition.</p>
+<hr class="docutils" />
+</section>
+<section id="sendfile">
+<span id="datalogger-commands-sendfile"></span><h3>$SENDFILE<a class="headerlink" href="#sendfile" title="Permalink to this headline">#</a></h3>
+<p>Description: Send file <br>
+No. of parameters: 2 <br>
+Parameter type: integer <br>
+Unit: - <br>
+Minimum parameter value: - <br>
+Maximum parameter value: - <br>
+Example: $SENDFILE DCPS.TXT 1000 <br></p>
+<p>This command will transmit parts of a file over iridium. It can be used to check the state of a sensor or download some data. The <a class="reference internal" href="#datalogger-commands-sendfile"><span class="std std-ref">$SENDFILE</span></a> command takes 2 parameters, where the fist parameter is the filename on the datalogger disk and the second parameter is the number of bytes to send.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the file is bigger than the second parameter N, only the
+last N bytes of the file will be sent.</p>
+</div>
+<p><a class="reference internal" href="#datalogger-commands-sendfile"><span class="std std-ref">$SENDFILE DCPS.TXT 1000</span></a> tells the datalogger to send the last 1000 bytes of the DCPS.TXT file. If the second parameter is bigger than the file size, the whole file will be sent. Note that the <a class="reference internal" href="#datalogger-commands-irifs"><span class="std std-ref">$IRIFS</span></a> setting will limit the bytes sent.</p>
+<hr class="docutils" />
+</section>
+<section id="irifs">
+<span id="datalogger-commands-irifs"></span><h3>$IRIFS<a class="headerlink" href="#irifs" title="Permalink to this headline">#</a></h3>
+<p>Description: Send file <br>
+No. of parameters: 2 <br>
+Parameter type: integer <br>
+Unit: bytes <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: - <br>
+Example: $IRIFS 5000 <br></p>
+<p>This command limits the maximum bytes send in one period. <a class="reference internal" href="#datalogger-commands-irifs"><span class="std std-ref">$IRIFS 5000</span></a> 5000 limits the transmission to bytes to 5 kB per period</p>
+<hr class="docutils" />
+</section>
+<section id="dir">
+<span id="datalogger-commands-dir"></span><h3>$DIR<a class="headerlink" href="#dir" title="Permalink to this headline">#</a></h3>
+<p>Description: List directory <br>
+No. of parameters: 0 <br>
+Parameter type: integer <br>
+Unit: - <br>
+Minimum parameter value: - <br>
+Maximum parameter value: - <br>
+Example: $DIR <br></p>
+<p>This command will send a text file showing the files on the disk, much like the DIR command in Windows. This command has no parameters. Sending []datalogger:commands:dir) will produce a file called DIR.TXT and below is an example of the contents of this file. This file is accessible to download  over at the <a class="reference internal" href="piloting.html#piloting-files"><span class="std std-ref">Files</span></a> tab.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>   <span class="n">Filename</span> <span class="o">|</span> <span class="n">Filesize</span><span class="p">[</span><span class="n">B</span><span class="p">]</span> <span class="o">|</span>       <span class="n">Date</span> <span class="o">|</span>     <span class="n">Time</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">SERIAL</span><span class="o">.</span><span class="n">TXT</span> <span class="o">|</span>         <span class="mi">860</span> <span class="o">|</span> <span class="mf">24.10.2019</span> <span class="o">|</span> <span class="mi">00</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">28</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">AIRMAR</span><span class="o">.</span><span class="n">TXT</span> <span class="o">|</span>       <span class="mi">56024</span> <span class="o">|</span> <span class="mf">24.10.2019</span> <span class="o">|</span> <span class="mi">17</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">44</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="n">DIR</span><span class="o">.</span><span class="n">TXT</span> <span class="o">|</span>           <span class="mi">0</span> <span class="o">|</span> <span class="mf">24.10.2019</span> <span class="o">|</span> <span class="mi">17</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">44</span> <span class="o">|</span>
+
+<span class="mi">3</span> <span class="n">File</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="mi">56884</span> <span class="nb">bytes</span>
+<span class="mi">977</span> <span class="n">MB</span> <span class="n">free</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="save">
+<span id="datalogger-commands-save"></span><h3>$SAVE<a class="headerlink" href="#save" title="Permalink to this headline">#</a></h3>
+<p>Description: Save current configuration <br>
+No. of parameters: 0 <br>
+Parameter type: integer <br>
+Unit: - <br>
+Minimum parameter value: - <br>
+Maximum parameter value: - <br>
+Example: $SAVE <br></p>
+<p>This command saves the current configuration as default. Sending <a class="reference internal" href="#datalogger-commands-save"><span class="std std-ref">$SAVE</span></a> will save the current configuration as default.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="data-fields">
+<span id="datalogger-data-fields"></span><h2>Data fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">#</a></h2>
+<p>In the Datalogger data tab the following columns are displayed:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Time</p></td>
+<td><p>Time for start of sampling</p></td>
+<td><p>Time UTC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lat</p></td>
+<td><p>Latitude in decimal degrees</p></td>
+<td><p>decimal degrees</p></td>
+</tr>
+<tr class="row-even"><td><p>Long</p></td>
+<td><p>Longitude in decimal degrees</p></td>
+<td><p>decimal degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTFF</p></td>
+<td><p>Time to first fix. The time in seconds the GPS uses to obtain a valid position.</p></td>
+<td><p>seconds</p></td>
+</tr>
+<tr class="row-even"><td><p>Count</p></td>
+<td><p>Tack counter. For each tack this counter is incremented. It rolls over after a set number of tacks.</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Commands</p></td>
+<td><p>Received commands count. Shows the number of command values received and processed on the previous transmission.</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-even"><td><p>Tx Tries</p></td>
+<td><p>Iridium transmission tries. Shows the number of transmissions tries on the previous transmission. This is normally set to 3 and if this value is 3 it is due to 3 tries end success or 3 tries and fail.</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>ONT</p></td>
+<td><p>On time (time in acquisition mode)</p></td>
+<td><p>seconds</p></td>
+</tr>
+<tr class="row-even"><td><p>I</p></td>
+<td><p>Current consumption after GPS fix.</p></td>
+<td><p>A</p></td>
+</tr>
+<tr class="row-odd"><td><p>V</p></td>
+<td><p>Battery voltage. Shows the battery voltage. &gt;13.3 fully charged. Maximum voltage is 14.2 volts when charging. <br> 13.0 V ~ 50% charged. <br> 12.8 V ~ 15% charged.</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-even"><td><p>Temperature</p></td>
+<td><p>Payload temperature. The internal temperature of the payload container.</p></td>
+<td><p>°C</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Each transmitted value has a limited range, i.e a maximum and minimum value. If the acquired
+value falls outside of these limits the transmitted value will be NULL. This is to save on transmission costs.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The transmitted data for the sensors is shown in the user manuals for each sensor. This depends on the
+configuration of the vehicle.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/dep"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ap_commands.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Autopilot</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../post_dep/post_deployment.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">After deployment</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Johan M. Edholm<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

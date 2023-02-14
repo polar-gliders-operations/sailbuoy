@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Autopilot &#8212; Sailbuoy</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/polar_gliders-simple.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Datalogger" href="dl_commands.html" />
+    <link rel="prev" title="Piloting" href="piloting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/polar_gliders-simple.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sailbuoy</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sensors/sensors.html">
+   Sensors
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sensors/DCPS.html">
+     Aanderaa DCPS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pre_dep/pre_deployment.html">
+   Before deployment
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="piloting.html">
+   Piloting
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Autopilot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dl_commands.html">
+     Datalogger
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../post_dep/post_deployment.html">
+   After deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../manuals/manuals.html">
+   Manuals
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/dep/ap_commands.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/dep/ap_commands.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing">
+   Timing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-functionality">
+   Basic functionality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tacking">
+     Tacking
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tick-interval">
+     Tick interval
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#track-radius">
+     Track radius
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#restarting">
+     Restarting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sail-position">
+     Sail position
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commands">
+   Commands
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#taint">
+     $TAINT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timin">
+     $TIMIN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strwp">
+     $STRWP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#endwp">
+     $ENDWP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rad">
+     $RAD
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auto">
+     $AUTO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tack">
+     $TACK
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wprad">
+     $WPRAD
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#swpmd">
+     $SWPMD
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autopilot-modes">
+   Autopilot modes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#follow-track-mode">
+     Follow track mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#station-keeping-mode">
+     Station keeping mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fence-mode">
+     Fence mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#real-world-data">
+     Real world data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manual-mode">
+     Manual mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-fields">
+   Data fields
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Autopilot</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing">
+   Timing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-functionality">
+   Basic functionality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tacking">
+     Tacking
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tick-interval">
+     Tick interval
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#track-radius">
+     Track radius
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#restarting">
+     Restarting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sail-position">
+     Sail position
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commands">
+   Commands
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#taint">
+     $TAINT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timin">
+     $TIMIN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strwp">
+     $STRWP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#endwp">
+     $ENDWP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rad">
+     $RAD
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auto">
+     $AUTO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tack">
+     $TACK
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wprad">
+     $WPRAD
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#swpmd">
+     $SWPMD
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autopilot-modes">
+   Autopilot modes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#follow-track-mode">
+     Follow track mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#station-keeping-mode">
+     Station keeping mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fence-mode">
+     Fence mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#real-world-data">
+     Real world data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manual-mode">
+     Manual mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-fields">
+   Data fields
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="autopilot">
+<span id="id1"></span><h1>Autopilot<a class="headerlink" href="#autopilot" title="Permalink to this headline">#</a></h1>
+<section id="timing">
+<span id="autopilot-timing"></span><h2>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">#</a></h2>
+<p>The Autopilot does the following things in sequence:</p>
+<ol class="simple">
+<li><p>Get GPS fix (10-20 s)</p></li>
+<li><p>Get internal sensor values (1 s)</p></li>
+<li><p>Calculate next tack (3 s)</p></li>
+<li><p>Send data (30-120 s)</p></li>
+<li><p>Recieve commands (10 s)</p></li>
+<li><p>Steer tack (rest of tack interval)</p></li>
+</ol>
+<figure class="align-default" id="id2">
+<img alt="../../_images/time_ap.png" src="../../_images/time_ap.png" />
+</figure>
+</section>
+<section id="basic-functionality">
+<span id="autopilot-basic"></span><h2>Basic functionality<a class="headerlink" href="#basic-functionality" title="Permalink to this headline">#</a></h2>
+<p>The SB uses the wind for propulsion, yet it does not control its sail, only the rudder. The SB has four possible sailing directions relative to the wind:</p>
+<figure class="align-default" id="sb-tack">
+<img alt="../../_images/tack.png" src="../../_images/tack.png" />
+</figure>
+<figure class="align-default" id="wind-tack">
+<img alt="../../_images/tack_wind.png" src="../../_images/tack_wind.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The direction and speed of these tacks will vary according to the wind and wave conditions, but will always lie within the yellow sectors.</span><a class="headerlink" href="#wind-tack" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="tacking">
+<span id="autopilot-basic-tacking"></span><h3>Tacking<a class="headerlink" href="#tacking" title="Permalink to this headline">#</a></h3>
+<p>When the SB changes direction it will always gybe, meaning it will lose some ground if going against the wind. If the interval is set too short (i.e., 5 min) it might lose more ground when turning than it will gain during each tack. This would result in a figure 8 at best, or losing ground completely.</p>
+<figure class="align-left">
+<a class="reference internal image-reference" href="../../_images/gybe1.png"><img alt="../../_images/gybe1.png" src="../../_images/gybe1.png" style="width: 75%;" /></a>
+</figure>
+<figure class="align-left">
+<a class="reference internal image-reference" href="../../_images/gybe2.png"><img alt="../../_images/gybe2.png" src="../../_images/gybe2.png" style="width: 75%;" /></a>
+</figure>
+<figure class="align-left">
+<a class="reference internal image-reference" href="../../_images/ex1.png"><img alt="../../_images/ex1.png" src="../../_images/ex1.png" style="width: 75%;" /></a>
+</figure>
+<figure class="align-left" id="id7">
+<a class="reference internal image-reference" href="../../_images/ex2.png"><img alt="../../_images/ex2.png" src="../../_images/ex2.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">: Some examples of how the Autopilot gybes and follows a given track in an ideal world.</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+</section>
+<section id="tick-interval">
+<span id="autopilot-basic-interval"></span><h3>Tick interval<a class="headerlink" href="#tick-interval" title="Permalink to this headline">#</a></h3>
+<p>Considerations:</p>
+<ul class="simple">
+<li><p>Turning radius</p></li>
+<li><p>Transmission costs</p></li>
+<li><p>Power consumption</p></li>
+</ul>
+<p>In practice the tack interval should be set to 15 minutes or more in AUTO mode but can be reduced to 5 minutes in manual mode.</p>
+</section>
+<section id="track-radius">
+<span id="autopilot-basic-radius"></span><h3>Track radius<a class="headerlink" href="#track-radius" title="Permalink to this headline">#</a></h3>
+<p>The track radius defines the corridor width. If the SB is further than the track radius from the track defined by the start and end waypoints, it will try to get inside the corridor before travelling towards the end waypoint. When outside the defined corridor the SB will choose a course that is perpendicular to the track.</p>
+<figure class="align-default" id="id3">
+<img alt="../../_images/track_radius.png" src="../../_images/track_radius.png" />
+</figure>
+</section>
+<section id="restarting">
+<span id="autopilot-basic-restarting"></span><h3>Restarting<a class="headerlink" href="#restarting" title="Permalink to this headline">#</a></h3>
+<p>The Autopilot can be restarted at any point in time without damaging the electronics. To restart the Autopilot first switch it off with the magnetic switch, wait 60 seconds, then remove the magnetic switch to start again. After this it will return back all settings to default.</p>
+</section>
+<section id="sail-position">
+<span id="autopilot-basic-sail-position"></span><h3>Sail position<a class="headerlink" href="#sail-position" title="Permalink to this headline">#</a></h3>
+<p>The sail position is included in the message transmitted from the Autopilot. The three values <strong>SailAtPort</strong>, <strong>SailInCentre</strong>, and <strong>SailAtStarboard</strong> show the time spent in each position in percent. Normally, <strong>SailAtPort</strong> + <strong>SailInCentre</strong> + <strong>SailAtStarboard</strong> = <strong>100%</strong>. The values <strong>SailAtPortBow</strong> and <strong>SailAtStarboardBow</strong> represents when the sail is past 90 degrees from the aft, on either side. This is indicative of storms, when waves and wind can force the sail outside the normal travel scope.</p>
+<figure class="align-default" id="id4">
+<img alt="../../_images/sail_position.png" src="../../_images/sail_position.png" />
+</figure>
+</section>
+</section>
+<section id="commands">
+<span id="autopilot-commands"></span><h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>No Parameters</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#autopilot-commands-taint"><span class="std std-ref">$TAINT</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Tack interval in seconds</p></td>
+<td><p>300</p></td>
+<td><p>300</p></td>
+<td><p>3600</p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-taint"><span class="std std-ref">$TAINT</span></a> 1800</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#autopilot-commands-timin"><span class="std std-ref">$TIMIN</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Tack interval in minutes</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+<td><p>60</p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-timin"><span class="std std-ref">$TIMIN</span></a> 10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#autopilot-commands-strwp"><span class="std std-ref">$STRWP</span></a></strong></p></td>
+<td><p>2</p></td>
+<td><p>Set start waypoint</p></td>
+<td><p>-</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-strwp"><span class="std std-ref">$STRWP</span></a> 66.54 5.543</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a></strong></p></td>
+<td><p>2</p></td>
+<td><p>Set end waypoint</p></td>
+<td><p>-</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a> 65.54 2.543</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#autopilot-commands-rad"><span class="std std-ref">$RAD</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Corridor radius in meters</p></td>
+<td><p>5000</p></td>
+<td><p>100</p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-rad"><span class="std std-ref">$RAD</span></a> 2000</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#autopilot-commands-auto"><span class="std std-ref">$AUTO</span></a></strong></p></td>
+<td><p>0</p></td>
+<td><p>Engage autopilot</p></td>
+<td><p>On</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-auto"><span class="std std-ref">$AUTO</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#autopilot-commands-tack"><span class="std std-ref">$TACK</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Steer tack (disengages autopilot)</p></td>
+<td><p>-</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-tack"><span class="std std-ref">$TACK</span></a> 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="#autopilot-commands-wprad"><span class="std std-ref">$WPRAD</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Waypoint reached radius</p></td>
+<td><p>1000</p></td>
+<td><p>0</p></td>
+<td><p></p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-wprad"><span class="std std-ref">$WPRAD</span></a> 1000</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="#autopilot-commands-swpmd"><span class="std std-ref">$SWPMD</span></a></strong></p></td>
+<td><p>1</p></td>
+<td><p>Enable fence mode</p></td>
+<td><p>Off</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p><a class="reference internal" href="#autopilot-commands-swpmd"><span class="std std-ref">$SWPMD</span></a> 1</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<section id="taint">
+<span id="autopilot-commands-taint"></span><h3>$TAINT<a class="headerlink" href="#taint" title="Permalink to this headline">#</a></h3>
+<p>Description: Tack interval in seconds <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: seconds <br>
+Minimum parameter value: 300 <br>
+Maximum parameter value: 3600 <br>
+Example: $TAINT 900 <br></p>
+<p>Sets the tack interval in seconds. <a class="reference internal" href="#autopilot-commands-taint"><span class="std std-ref">$TAINT 900</span></a> will set the tack interval to 15 minutes. This means that every 30 min the autopilot will exit steer tack mode, get new GPS fix and select a new tack. If a short tack interval is set, say <a class="reference internal" href="#autopilot-commands-taint"><span class="std std-ref">$TAINT 300</span></a>, a new tack will be selected every 5 min. This can affect the performance since it will turn quite often and lose ground in every turn. The best performance is achieved when the tack interval is 30 min. Most of the power consumption is when the GPS and iridium modems are active, therefore a 5-minute tack interval will use around 6 times as much power as a 30 min. tack interval.
+A 5-minute tack interval is useful in manual mode when deploying or retrieving since the position is updated every 5 minutes.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The tack interval can have the following values: 300, 600, 900, 1800, 3600. Other values might lead to unexpected behavior.</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="timin">
+<span id="autopilot-commands-timin"></span><h3>$TIMIN<a class="headerlink" href="#timin" title="Permalink to this headline">#</a></h3>
+<p>Description: Tack interval in minutes<br>
+No. of parameters: 1 <br>
+Parameter type: Float <br>
+Unit: minutes <br>
+Minimum parameter value: 5 <br>
+Maximum parameter value: 60 <br>
+Example: $TIMIN 10 <br></p>
+<p>Sets the tack interval in minutes. This is an alternative to <a class="reference internal" href="#autopilot-commands-taint"><span class="std std-ref">$TAINT</span></a> but uses minutes instead of seconds. See the <a class="reference internal" href="#autopilot-commands-taint"><span class="std std-ref">$TAINT</span></a>.</p>
+<hr class="docutils" />
+</section>
+<section id="strwp">
+<span id="autopilot-commands-strwp"></span><h3>$STRWP<a class="headerlink" href="#strwp" title="Permalink to this headline">#</a></h3>
+<p>Description: Start waypoint <br>
+No. of parameters: 2 <br>
+Parameter type: Floating point <br>
+Unit: decimal degrees <br>
+Minimum parameter value: -180.0 <br>
+Maximum parameter value: 180.0 <br>
+Example: $STRWP 65.1232 -5.23423 <br></p>
+<p>Sending this parameter sets the start waypoint on the autopilot. The autopilot will use this coordinate to calculate tacks to follow the line defined by start waypoint and end waypoint.</p>
+<hr class="docutils" />
+</section>
+<section id="endwp">
+<span id="autopilot-commands-endwp"></span><h3>$ENDWP<a class="headerlink" href="#endwp" title="Permalink to this headline">#</a></h3>
+<p>Description: End waypoint <br>
+No. of parameters: 2 <br>
+Parameter type: Floating point <br>
+Unit: decimal degrees <br>
+Minimum parameter value: -180.0 <br>
+Maximum parameter value: 180.0 <br>
+Example: $ENDWP 65.1232 -5.23423 <br></p>
+<p>Sending this parameter sets the end waypoint on the autopilot. The autopilot will use this coordinate to calculate tacks to follow the line defined by start waypoint and end waypoint. The autopilot will follow the great circle route between the waypoints. The distance between the waypoints can be from 0 meters to thousands of kilometers. It is advisable to send both the start and the end waypoint in the same message or else it is easy to lose track of the autopilot setting.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both the <a class="reference internal" href="#autopilot-commands-strwp"><span class="std std-ref">$STRWP</span></a> and <a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a> require the latitude first and longitude second, in decimal degrees (DD.dddd)</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="rad">
+<span id="autopilot-commands-rad"></span><h3>$RAD<a class="headerlink" href="#rad" title="Permalink to this headline">#</a></h3>
+<p>Description: Track radius <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: meters <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: - <br>
+Example: $RAD 5000 <br></p>
+<p>Sending this parameter sets track radius in meters. Sending the command <a class="reference internal" href="#autopilot-commands-rad"><span class="std std-ref">$RAD 5000</span></a> will set the track radius to 5 km. The corridor with will then be 10 km. Track radius is the distance the autopilot can veer away from the ideal track. If the autopilot is further away from the ideal track than the track radius, it will only try to get back inside the corridor, ignoring the end waypoint. Once inside the corridor it will resume following the ideal track again.</p>
+<hr class="docutils" />
+</section>
+<section id="auto">
+<span id="autopilot-commands-auto"></span><h3>$AUTO<a class="headerlink" href="#auto" title="Permalink to this headline">#</a></h3>
+<p>Description: Engage autopilot <br>
+No. of parameters: 0 <br>
+Parameter type: - <br>
+Unit: - <br>
+Minimum parameter value: - <br>
+Maximum parameter value: - <br>
+Example: $AUTO <br></p>
+<p>Sending this command reengages the autopilot after using manual mode. The autopilot will the control the Sailbuoy and select the best tacks to follow the corridoor defined by <a class="reference internal" href="#autopilot-commands-strwp"><span class="std std-ref">$STRWP</span></a>, <a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a> and <a class="reference internal" href="#autopilot-commands-rad"><span class="std std-ref">$RAD</span></a>.</p>
+<hr class="docutils" />
+</section>
+<section id="tack">
+<span id="autopilot-commands-tack"></span><h3>$TACK<a class="headerlink" href="#tack" title="Permalink to this headline">#</a></h3>
+<p>Description: Steer tack <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: integer <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: 3 <br>
+Example: $TACK 2 <br></p>
+<p>Sending this command overrides the autopilot tacks, telling the autopilot to steer a certain tack. For example, sending the command <a class="reference internal" href="#autopilot-commands-tack"><span class="std std-ref">$TACK 2</span></a> will tell the autopilot to steer tack 2 indefinitely until a new command is sent. This way of controlling the autopilot is called manual mode. This mode is mostly used during deployment and retrieval to ensure that the Sailbuoy behaves in a predictable manner. To enter automatic mode again, send the command <a class="reference internal" href="#autopilot-commands-auto"><span class="std std-ref">$AUTO</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This command <strong>DISABLES</strong> the autopilot mode, must send <a class="reference internal" href="#autopilot-commands-auto"><span class="std std-ref">$AUTO</span></a> again to re-engage.</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="wprad">
+<span id="autopilot-commands-wprad"></span><h3>$WPRAD<a class="headerlink" href="#wprad" title="Permalink to this headline">#</a></h3>
+<p>Description: Waypoint reached radius <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: meters <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: - <br>
+Example: $WPRAD 2000 <br></p>
+<p>Sending this command tells the autopilot when the end waypoint is reached. The autopilot only uses this parameter in fence mode. The autopilot checks if its current position is within the circle defined by this radius around the end waypoint. If it is then the end waypoint is reached. For example, sending <a class="reference internal" href="#autopilot-commands-wprad"><span class="std std-ref">$WPRAD 2000</span></a> will tell the autopilot that the waypoint is reached when the Sailbuoys GPS position is closer than 2 km from the end waypoint. This command is used in fence mode telling the autopilot when to turn around. Sending the command <a class="reference internal" href="#autopilot-commands-wprad"><span class="std std-ref">$WPRAD 0</span></a> will tell the autopilot to get as close to the end waypoint as possible before turning around in fence mode.</p>
+<hr class="docutils" />
+</section>
+<section id="swpmd">
+<span id="autopilot-commands-swpmd"></span><h3>$SWPMD<a class="headerlink" href="#swpmd" title="Permalink to this headline">#</a></h3>
+<p>Description: Switch waypoint mode (fence mode) <br>
+No. of parameters: 1 <br>
+Parameter type: integer <br>
+Unit: integer <br>
+Minimum parameter value: 0 <br>
+Maximum parameter value: 1 <br>
+Example: $SWPMD 1 <br></p>
+<p>Sending this command tells the autopilot what to do when it reaches the end waypoint (see <a class="reference internal" href="#autopilot-commands-wprad"><span class="std std-ref">$WPRAD</span></a>). <a class="reference internal" href="#autopilot-commands-swpmd"><span class="std std-ref">$SWPMD 0</span></a> will tell the autopilot to stay at the end waypoint until further notice (i.e. new commands are sent) while <a class="reference internal" href="#autopilot-commands-swpmd"><span class="std std-ref">$SWPMD 1</span></a> tells the autopilot to swap the start and end waypoint causing the Sailbuoy to head back towards the original start waypoint. When it arrives at this new end waypoint, it will swap waypoints again causing it to turn back. It will keep doing this back and forth until told otherwise.</p>
+</section>
+</section>
+<section id="autopilot-modes">
+<span id="id5"></span><h2>Autopilot modes<a class="headerlink" href="#autopilot-modes" title="Permalink to this headline">#</a></h2>
+<section id="follow-track-mode">
+<span id="autopilot-modes-follow-track"></span><h3>Follow track mode<a class="headerlink" href="#follow-track-mode" title="Permalink to this headline">#</a></h3>
+<p>This is the default mode where the SB follows an ideal track from its current position to a waypount. <br>
+<br>
+Example commands: <br>
+<a class="reference internal" href="#autopilot-commands-strwp"><span class="std std-ref">$STRWP</span></a> -53.5 0 <br>
+<a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a> -54.5 0 <br>
+<a class="reference internal" href="#autopilot-commands-rad"><span class="std std-ref">$RAD</span></a> 5000 <br></p>
+<p>A <strong>non-repeating</strong> transect from 53.5°S, 0°E to 54.5°S, 0°E with a corridor radius of 5000 meters.</p>
+<figure class="align-default" id="track-mode">
+<a class="reference internal image-reference" href="../../_images/track_mode.png"><img alt="../../_images/track_mode.png" src="../../_images/track_mode.png" style="width: 100%;" /></a>
+</figure>
+</section>
+<section id="station-keeping-mode">
+<span id="autopilot-modes-station-keep"></span><h3>Station keeping mode<a class="headerlink" href="#station-keeping-mode" title="Permalink to this headline">#</a></h3>
+<p>This is the default mode when the SB has reached its waypount. In the example above, this is the expected behavior when reaching the location determined by <a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a>.</p>
+<figure class="align-center" id="station-mode">
+<a class="reference internal image-reference" href="../../_images/station.png"><img alt="../../_images/station.png" src="../../_images/station.png" style="width: 25%;" /></a>
+</figure>
+</section>
+<section id="fence-mode">
+<span id="autopilot-modes-fence-mode"></span><h3>Fence mode<a class="headerlink" href="#fence-mode" title="Permalink to this headline">#</a></h3>
+<p>In this mode the SB travels between 2 waypoints. We add the command <a class="reference internal" href="#autopilot-commands-swpmd"><span class="std std-ref">$SWPMD 1</span></a>, which tells it to swap waypoints once reaching the location determined by <a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a>. The previous <a class="reference internal" href="#autopilot-commands-strwp"><span class="std std-ref">$STRWP</span></a> now becomes <a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a> and vice versa. We also add the command <a class="reference internal" href="#autopilot-commands-wprad"><span class="std std-ref">$WPRAD 2000</span></a> which sets the <code class="docutils literal notranslate"><span class="pre">reached</span> <span class="pre">waypoint</span></code> radius to 2 km.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/fence_mode.png"><img alt="../../_images/fence_mode.png" src="../../_images/fence_mode.png" style="width: 50%;" /></a>
+</figure>
+<p>Example commands: <br>
+<a class="reference internal" href="#autopilot-commands-strwp"><span class="std std-ref">$STRWP</span></a> -53.5 0 <br>
+<a class="reference internal" href="#autopilot-commands-endwp"><span class="std std-ref">$ENDWP</span></a> -54.5 0 <br>
+<a class="reference internal" href="#autopilot-commands-rad"><span class="std std-ref">$RAD</span></a> 5000 <br>
+<a class="reference internal" href="#autopilot-commands-swpmd"><span class="std std-ref">$SWPMD</span></a> 1 <br>
+<a class="reference internal" href="#autopilot-commands-wprad"><span class="std std-ref">$WPRAD</span></a> 2000 <br>
+<br></p>
+<p>A <strong>repeating</strong> transect from 53.5°S, 0°E to 54.5°S, 0°E with a corridor radius of 5000 meters.</p>
+<hr class="docutils" />
+</section>
+<section id="real-world-data">
+<span id="autopilot-modes-sochic"></span><h3>Real world data<a class="headerlink" href="#real-world-data" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/sb_wind_vel.png"><img alt="../../_images/sb_wind_vel.png" src="../../_images/sb_wind_vel.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Sailbuoy velocity as a function of wind speed and difference between Sailbuoy heading and wind direction. Negative values on the x-axis indicates the the wind is coming from the starboard side, and vice versa.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+</section>
+<section id="manual-mode">
+<span id="autopilot-modes-manual"></span><h3>Manual mode<a class="headerlink" href="#manual-mode" title="Permalink to this headline">#</a></h3>
+<p>Manual control will override the autopilots next calculated tack. When the command “<a class="reference internal" href="#autopilot-commands-tack"><span class="std std-ref">$TACK</span></a> 0” is sent to the
+autopilot, upon receiving the command it will steer on tack 0 and ignore the tacks calculated by the autopilot. One can send the following commands to steer manually: <br>
+<a class="reference internal" href="#autopilot-commands-tack"><span class="std std-ref">$TACK</span></a> 0 <br>
+<a class="reference internal" href="#autopilot-commands-tack"><span class="std std-ref">$TACK</span></a> 1 <br>
+<a class="reference internal" href="#autopilot-commands-tack"><span class="std std-ref">$TACK</span></a> 2 <br>
+<a class="reference internal" href="#autopilot-commands-tack"><span class="std std-ref">$TACK</span></a> 3 <br></p>
+<p>Sending the command <a class="reference internal" href="#autopilot-commands-auto"><span class="std std-ref">$AUTO</span></a> will end manual mode and revert to the autopilot mode.</p>
+</section>
+</section>
+<section id="data-fields">
+<span id="autopilot-data-fields"></span><h2>Data fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">#</a></h2>
+<p>In the Autopilot data tab the following columns are displayed:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Time</p></td>
+<td><p>Start time for each tack.</p></td>
+<td><p>Time UTC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lat</p></td>
+<td><p>Latitude in decimal degrees</p></td>
+<td><p>decimal degrees</p></td>
+</tr>
+<tr class="row-even"><td><p>Long</p></td>
+<td><p>Longitude in decimal degrees</p></td>
+<td><p>decimal degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTFF</p></td>
+<td><p>Time to first fix. The time in seconds the GPS uses to obtain a valid position.</p></td>
+<td><p>seconds</p></td>
+</tr>
+<tr class="row-even"><td><p>Warning</p></td>
+<td><p>Warning indicator. Indicates that the pilot has to pay attention to the Sailbuoy status.</p></td>
+<td><p>True/False</p></td>
+</tr>
+<tr class="row-odd"><td><p>Count</p></td>
+<td><p>Tack counter. For each tack this counter is incremented. It rolls over after a set number of tacks.</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-even"><td><p>Leak</p></td>
+<td><p>Leak switch indicator. Indicates a leak in the hull.</p></td>
+<td><p>True/False</p></td>
+</tr>
+<tr class="row-odd"><td><p>Commands</p></td>
+<td><p>Received commands count. Shows the number of command values received and processed on the previous transmission.</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-even"><td><p>I</p></td>
+<td><p>Current consumption after GPS fix.</p></td>
+<td><p>A</p></td>
+</tr>
+<tr class="row-odd"><td><p>V</p></td>
+<td><p>Battery voltage. Shows the battery voltage. &gt;13.4 fully charged. Maximum voltage is 14.2 volts when charging. <br> 13.0 V ~ 50% charged. <br> 12.8 V ~ 15% charged.</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-even"><td><p>Temperature</p></td>
+<td><p>Payload temperature. The internal temperature of the payload container.</p></td>
+<td><p>°C</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pressure</p></td>
+<td><p>Payload pressure. The internal pressure of the payload container.</p></td>
+<td><p>hPa</p></td>
+</tr>
+<tr class="row-even"><td><p>Humidity</p></td>
+<td><p>Payload humidity. The humidity of the payload container. If this value increases it can indicate a leak in the payload container.</p></td>
+<td><p>%</p></td>
+</tr>
+<tr class="row-odd"><td><p>TransmissionTries</p></td>
+<td><p>Iridium transmission tries. Shows the number of transmissions tries on the previous transmission. This is normally set to 3 and if this value is 3 it is due to 3 tries end success or 3 tries and fail.</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-even"><td><p>OnTimeSec</p></td>
+<td><p></p></td>
+<td><p>seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velocity</p></td>
+<td><p>Velocity over ground. The velocity calculated from the previous GPS position.</p></td>
+<td><p>m/s</p></td>
+</tr>
+<tr class="row-even"><td><p>Heading</p></td>
+<td><p>GPS tack direction. Direction calculated from the previous GPS position.</p></td>
+<td><p>deg</p></td>
+</tr>
+<tr class="row-odd"><td><p>TrackDistance</p></td>
+<td><p>Distance from the line defined by the start and end waypoint. If no value (NULL) the distance is greater than 24 km.</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-even"><td><p>WaypointDirection</p></td>
+<td><p>The direction for the current position to the end waypoint.</p></td>
+<td><p>deg</p></td>
+</tr>
+<tr class="row-odd"><td><p>TrackRadius</p></td>
+<td><p>The radius of the corridor set by the $RAD command</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-even"><td><p>WindDirection</p></td>
+<td><p>Calculated wind direction. The wind direction is calculated based on the behavior of the Sailbuoy on different tacks. The wind direction is recalculated when changing from Tack 0 to 1 or from tack 2 to 3. The autopilot uses this value to calculate the next tack.</p></td>
+<td><p>deg</p></td>
+</tr>
+<tr class="row-odd"><td><p>AutoModeEnabled</p></td>
+<td><p>Indicates if the autopilot is controlling the navigation. AutoModeEnabled = 0 if in manual mode</p></td>
+<td><p>True/False</p></td>
+</tr>
+<tr class="row-even"><td><p>SwitchWaypointModeEnabled</p></td>
+<td><p>Is true if fence mode is enabled. Set by the $SWPMD command</p></td>
+<td><p>True/False</p></td>
+</tr>
+<tr class="row-odd"><td><p>NextAutopilotTack</p></td>
+<td><p>The next autopilot tack. This is the next tack chosen by the autopilot. When in manual mode this tack will be overridden by the manual tack.</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-even"><td><p>CurrentTack</p></td>
+<td><p>The current tack sailed</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>PreviousTack, T1, T2, T3</p></td>
+<td><p>Previous tacks</p></td>
+<td><p>integer</p></td>
+</tr>
+<tr class="row-even"><td><p>WPReached</p></td>
+<td><p>Waypoint reached</p></td>
+<td><p>True/False</p></td>
+</tr>
+<tr class="row-odd"><td><p>WithinTrackRadius</p></td>
+<td><p>Within corridor</p></td>
+<td><p>True/False</p></td>
+</tr>
+<tr class="row-even"><td><p>SailAtPortBow</p></td>
+<td><p>Sail past 90 deg to port count</p></td>
+<td><p>%</p></td>
+</tr>
+<tr class="row-odd"><td><p>SailAtPort</p></td>
+<td><p>Sail at port count</p></td>
+<td><p>%</p></td>
+</tr>
+<tr class="row-even"><td><p>SailInCentre</p></td>
+<td><p>Sail in middle count</p></td>
+<td><p>%</p></td>
+</tr>
+<tr class="row-odd"><td><p>SailAtStarboard</p></td>
+<td><p>Sail at starboard count</p></td>
+<td><p>%</p></td>
+</tr>
+<tr class="row-even"><td><p>SailAtStarboardBow</p></td>
+<td><p>Sail past 90 deg to starboard count</p></td>
+<td><p>%</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/dep"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="piloting.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Piloting</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="dl_commands.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Datalogger</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Johan M. Edholm<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
